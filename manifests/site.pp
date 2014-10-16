@@ -60,27 +60,27 @@ node default {
   #include nginx
   
   # Use my own gitconfig
-  include "alfred"
-  include "brewcask"
-  include "caffeine"
-  include "chrome"
-  include "evernote"
-  include "firefox"
-  include "github_for_mac"
-  include "intellij"
-  include "iterm2"
-  include "mou"
-  include "onepassword"
-  include "osx"
-  include "pycharm"
-  include "python"
-  include "skype"
-  include "sublime_text_3"
-  include "tunnelblick"
-  include "unarchiver"
-  include "vagrant"
-  include "vagrant_manager"
-  include "virtualbox"
+  include alfred
+  include brewcask
+  include caffeine
+  include chrome
+  include evernote
+  include firefox
+  include github_for_mac
+  include intellij
+  include iterm2
+  include mou
+  include onepassword
+  include osx
+  include pycharm
+  include python
+  include skype
+  include sublime_text_3
+  include tunnelblick
+  include unarchiver
+  include vagrant
+  include vagrant_manager
+  include virtualbox
 
 
   # fail if FDE is not enabled
