@@ -2,6 +2,7 @@ require boxen::environment
 require homebrew
 require gcc
 
+
 Exec {
   group       => 'staff',
   logoutput   => on_failure,
@@ -53,10 +54,34 @@ Homebrew::Formula <| |> -> Package <| |>
 
 node default {
   # core modules, needed for most things
-  include dnsmasq
+  #include dnsmasq
   include git
   include hub
-  include nginx
+  #include nginx
+  
+  # Use my own gitconfig
+  include "alfred"
+  include "brewcask"
+  include "caffeine"
+  include "chrome"
+  include "evernote"
+  include "firefox"
+  include "github_for_mac"
+  include "intellij"
+  include "iterm2"
+  include "mou"
+  include "onepassword"
+  include "osx"
+  include "pycharm"
+  include "python"
+  include "skype"
+  include "sublime_text_3"
+  include "tunnelblick"
+  include "unarchiver"
+  include "vagrant"
+  include "vagrant_manager"
+  include "virtualbox"
+
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
@@ -64,16 +89,19 @@ node default {
   }
 
   # node versions
-  include nodejs::v0_6
-  include nodejs::v0_8
-  include nodejs::v0_10
+  nodejs::version { 'v0.10': }
+  nodejs::version { 'v0.8': }
+  class { 'nodejs::global': version => 'v0.10' }
 
   # default ruby versions
   ruby::version { '1.9.3': }
-  ruby::version { '2.0.0': }
-  ruby::version { '2.1.0': }
-  ruby::version { '2.1.1': }
   ruby::version { '2.1.2': }
+
+  # python versions
+  python::version { '2.7.8': }
+  python::version { '3.4.1': }
+  python::version { 'pypy-2.3.1': }
+  include python::global
 
   # common, useful packages
   package {
@@ -83,6 +111,7 @@ node default {
       'gnu-tar'
     ]:
   }
+
 
   file { "${boxen::config::srcdir}/our-boxen":
     ensure => link,
