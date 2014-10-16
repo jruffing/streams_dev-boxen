@@ -68,7 +68,7 @@ node default {
   include firefox
   include github_for_mac
   include intellij
-  include iterm2
+  include iterm2::stable
   include mou
   include onepassword
   include osx
