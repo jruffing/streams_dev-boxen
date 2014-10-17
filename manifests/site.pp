@@ -71,7 +71,12 @@ node default {
   include iterm2::stable
   include mou
   include onepassword
-  include osx
+  include osx::dock::autohide
+  include osx::finder::show_hidden_files
+  include osx::global::key_repeat_delay
+  include osx::global::key_repeat_rate
+  include osx::global::tap_to_click
+  include osx::software_update
   include pycharm
   include python
   include skype
