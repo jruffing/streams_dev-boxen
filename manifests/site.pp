@@ -86,6 +86,7 @@ node default {
   include vagrant
   include vagrant_manager
   include virtualbox
+  include virtualenv
 
 
   # fail if FDE is not enabled
@@ -103,10 +104,10 @@ node default {
   ruby::version { '2.1.2': }
 
   # python versions
-  python::version { '2.7.8': }
-  python::version { '3.4.1': }
-  python::version { 'pypy-2.3.1': }
-  include python::global
+  class { "python::version" : version => '2.7.8' }
+  python::venv::isolate { "/usr/local/venv/shield_streams": }
+  #class { "python::version" : version => '3.4.1' }
+
 
   # common, useful packages
   package {
