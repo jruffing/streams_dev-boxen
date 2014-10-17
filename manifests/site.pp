@@ -86,8 +86,7 @@ node default {
   include vagrant
   include vagrant_manager
   include virtualbox
-  include virtualenv
-
+  include python::venv
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
